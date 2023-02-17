@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "what's your filename?"
+
+read  filename 
+chmod u+x "$filename"
+git add . &&   git commit -m "$filename"  &&  git push 
