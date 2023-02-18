@@ -1,24 +1,36 @@
 #include <stdio.h>
 /**
  *main-program entry point.
- *Return:0 Code EndnPoint End exe
+ *Return:0 Return value and end code
  */
 int main(void)
 {
-	int num;
+	int i, k = '0', j;
 
-	for (num = '0'; num <= '9'; num++)
+	for (i = '0'; i <= '9'; i++)
 	{
-		putchar(num);
-		if (num == '9')
+		for (j = k; j <= '9'; j++)
 		{
-			break;
+			if (i != j)
+			{
+				putchar(i);
+				putchar(j);
+			}
+			if (i == j)
+			{
+				continue;
+			}
+			if (i == '8' && j == '9')
+			{
+				break;
+			}
+			else
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
-		else
-		{
-			putchar(',');
-			putchar(' ');
-		}
+		k++;
 	}
 	putchar('\n');
 	return (0);

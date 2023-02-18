@@ -1,16 +1,24 @@
 #include <stdio.h>
 /**
- * main-program entry point.
- * Return: 0 Success code end
+ *main-program entry point.
+ *Return:0 Return, Quit, Success
  */
 int main(void)
 {
-	int i;
-	char hexvalues[] = "0123456789abcdef";
+	int num;
 
-	for (i = 0; i < 16; i++)
+	for (num = '0'; num <= '9'; num++)
 	{
-		putchar(hexvalues[i]);
+		putchar(num);
+		if (num == '9')
+		{
+			break;
+		}
+		else
+		{
+			putchar(',');
+			putchar(' ');
+		}
 	}
 	putchar('\n');
 	return (0);
