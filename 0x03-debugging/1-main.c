@@ -1,27 +1,17 @@
 /**
- * main - Entry point, causes an infinite loop
- *
- * Return: Always 0 (Success)
+ * main - causes an infinite loop
+ * Return: 0
  */
 int main(void)
 {
 	int i;
 
-	printf("Infinite loop incoming :(\n"); /* Print message */
-
+	printf("Infinite loop incoming :(\n");
 	i = 0;
-
-	/* Infinite loop starts here */
-	while (i < 10)
-	{
-		/*putchar(i);*/
-		/* This line should be commented out to avoid infinite loop */
-		i++;
-	}
-
+	/*while (i < 10)*/
+	/*{*/
+	/*       putchar(i);*/
+	/*}*/
 	/*printf("Infinite loop avoided! \\o/\n");*/
-	/* This line should be commented out to only print the incoming message */
-
-	printf("Infinite loop incoming :(\n"); /* Print message again */
 	return (0);
 }
