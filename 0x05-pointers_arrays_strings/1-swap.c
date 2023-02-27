@@ -5,12 +5,14 @@
  * @b: swap with a
  */
 void swap_int(int *a, int *b)
+
 {
+
 	int m;
 
-	j = *a;
+	m = *a;
 
 	*a = *b;
 
-	*b = j;
+	*b = m;
 }
