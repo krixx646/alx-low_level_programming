@@ -13,7 +13,7 @@ int main(void)
 {
 	int n;
 
-	9int a[5];
+	int a[5];
 
 	int *p;
 
