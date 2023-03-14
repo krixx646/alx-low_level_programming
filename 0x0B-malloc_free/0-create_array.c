@@ -13,7 +13,6 @@
 char *create_array(unsigned int size, char c)
 {
 	char *s;
-
 	int j;
 
 	s = malloc(size * sizeof(char));
@@ -26,8 +25,7 @@ char *create_array(unsigned int size, char c)
 		return (NULL);
 	}
 	j = 0;
-
-	while (j <(int) size)
+	while (j < (int)size)
 	{
 		s[j] = c;
 		j++;
