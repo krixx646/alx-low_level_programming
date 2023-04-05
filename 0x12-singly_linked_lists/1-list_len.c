@@ -2,19 +2,19 @@
 
 /**
  * list_len - number of elements list
- * @h: pointer to structure
+ * @h: pointer to structure Available.
  * Return: length.
  */
 
 size_t list_len(const list_t *h)
 {
 
-	unsigned int i = 0;
+	unsigned int m = 0;
 
 	while (h != NULL)
 	{
-		i++;
+		m++;
 		h = h->next;
 	}
-	return (i);
+	return (m);
 }
