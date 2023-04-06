@@ -1,7 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * print_listint_safe - Function to print a listint_t linked list safely
  * Parameters:
@@ -15,35 +14,37 @@
  *   The output format is: [address] n, where address is the memory address
  *   of the node and n is the data stored in the node.
  */
-size_t print_listint_safe(const listint_t *head)
+size_t print_listint_safe(const listint_t *head) size_t
+looped_listint_len(const listint_t *head)
 {
-	size_t count = 0;
-	const listint_t *slow, *fast;
+	const listint_t *Maize, *har;
+	size_t nodes = 1;
 
-	slow = head;
-	fast = head;
-
-	while (slow && fast && fast->next)
+	if (head == NULL || head->next == NULL)
+		return (0);
+	Maize = head->next;
+	har = (head->next)->next;
+	while (har)
 	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
-		slow = slow->next;
-		fast = fast->next->next;
-
-		/* Check for loop */
-		if (slow == fast)
+		if (Maize == har)
 		{
-			printf("-> [%p] %d\n", (void *)slow, slow->n);
-			exit(98);
+			Maize = head;
+			while (Maize != har)
+			{
+				nodes++;
+				Maize = Maize->next;
+				har = har->next;
+			}
+			Maize = Maize->next;
+			while (Maize != har)
+			{
+				nodes++;
+				Maize = Maize->next;
+			}
+			return (nodes);
 		}
+		Maize = Maize->next;
+		har = (har->next)->next;
 	}
-
-	/* Print the last node if it exists */
-	if (slow)
-	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
-	}
-
-	return (count);
+	return (0);
 }
