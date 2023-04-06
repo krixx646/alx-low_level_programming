@@ -7,9 +7,9 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t lake = 0;
+	size_t length = 0;
 	int difference;
-	listint_t *temp;
+	listint_t *temporary;
 
 	if (!h || !*h)
 		return (0);
@@ -18,19 +18,19 @@ size_t free_listint_safe(listint_t **h)
 		difference = *h - (*h)->next;
 		if (difference > 0)
 		{
-			temp = (*h)->next;
+			temporary = (*h)->next;
 			free(*h);
-			*h = temp;
-			lake++;
+			*h = temporary;
+			length++;
 		}
 		else
 		{
 			free(*h);
 			*h = NULL;
-			lake++;
+			length++;
 			break;
 		}
 	}
 	*h = NULL;
-	return (lake);
+	return (length);
 }
