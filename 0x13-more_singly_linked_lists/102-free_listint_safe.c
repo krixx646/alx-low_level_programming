@@ -1,31 +1,28 @@
-#include "lists.h"
-
 /**
- * free_listint_safe - Frees a listint_t list.
- * @h: Pointer to the head of the list.
+ * free_listint_safe - Frees a listint_t list safely (i.e., it can free lists
+ * containing loops)
+ * @h: A pointer to the address of the head of the listint_t list.
  *
- * Return: The size of the list that was free'd.
+ * Return: The size of the list that was freed.
+ *
+ * Description: The function sets the head to NULL.
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *current, *tmp;
-	size_t len = 0;
+	size_t count = 0;
+	listint_t *tmp;
 
-	if (!h || !*h)
-		return (0);
-
-	current = *h;
-	while (current)
+	while (*h != NULL)
 	{
-		len++;
-		tmp = current;
-		current = current->next;
+		tmp = *h;
+		*h = (*h)->next;
 		free(tmp);
-		if (tmp <= current)
+		count++;
+		if (tmp <= *h)
 			break;
 	}
 
 	*h = NULL;
 
-	return (len);
+	return (count);
 }
