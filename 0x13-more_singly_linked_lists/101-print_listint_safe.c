@@ -1,50 +1,29 @@
-#include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
- * print_listint_safe - Function to print a listint_t linked list safely
- * Parameters:
- *  @head: Pointer to the head of the linked list
- * Return:
- *   Number of nodes in the list
- * Description:
- *   This function prints the data (n) of each node in the linked list, while
- *   handling cases where the list may have a loop. If the function fails to
- *   print the list due to a loop, it will exit the program with status 98.
- *   The output format is: [address] n, where address is the memory address
- *   of the node and n is the data stored in the node.
+ * print_listint_safe - function that prints a linked list with a loop safely.
+ * @head: pointer to the 1st node of the linked list
+ * Return: new_node
  */
-size_t print_listint_safe(const listint_t *head) size_t
-looped_listint_len(const listint_t *head)
+size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *Maize, *har;
-	size_t nodes = 1;
+	const listint_t *tmp_n = NULL;
+	const listint_t *l_n = NULL;
+	size_t counter = 0;
+	size_t new_n;
 
-	if (head == NULL || head->next == NULL)
-		return (0);
-	Maize = head->next;
-	har = (head->next)->next;
-	while (har)
+	tmp_n = head;
+	while (tmp_n)
 	{
-		if (Maize == har)
+		printf("[%p] %d\n", (void *)tmp_n, tmp_n->n);
+		new_n = (size_t)tmp_n;
+		tmp_n = tmp_n->next;
+		counter++;
+		if (new_n >= (size_t)tmp_n)
 		{
-			Maize = head;
-			while (Maize != har)
-			{
-				nodes++;
-				Maize = Maize->next;
-				har = har->next;
-			}
-			Maize = Maize->next;
-			while (Maize != har)
-			{
-				nodes++;
-				Maize = Maize->next;
-			}
-			return (nodes);
+			l_n = tmp_n;
+			counter += printf("-> [%p] %d\n", (void *)l_n, l_n->n);
+			break;
 		}
-		Maize = Maize->next;
-		har = (har->next)->next;
 	}
-	return (0);
+	return (counter);
 }
+
