@@ -13,45 +13,38 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int bass, zag, ok;
+	int James_bond;
 
-	if (filename == NULL)
-	{
-		perror("write");
+	int geto;
+
+	int krixx;
+
+	if (!filename)
+
 		return (-1);
-	}
 
-	if (access(filename, F_OK) != 0)
-	{
-		perror("write");
+	James_bond = open(filename, O_WRONLY | O_APPEND);
+
+	if (James_bond == -1)
+
 		return (-1);
-	}
 
-	bass = open(filename, O_WRONLY | O_APPEND);
-	if (bass == -1)
+	if (text_content)
+
 	{
-		perror("write");
-		return (-1);
-	}
 
-	ok = strlen(text_content);
+		for (geto = 0; text_content[geto]; geto++)
 
-	if ((text_content == NULL) || (access(filename, W_OK) != 0))
-	{
-		zag = write(bass, text_content, ok);
-		if (zag == -1)
-		{
-			perror("write");
-			close(bass);
+			;
+
+		krixx = write(James_bond, text_content, geto);
+
+		if (krixx == -1)
+
 			return (-1);
-		}
-	}
-	else
-	{
-		close(bass);
-		return (1);
 	}
 
-	close(bass);
-	return (0);
+	close(James_bond);
+
+	return (1);
 }
