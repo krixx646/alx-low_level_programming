@@ -12,6 +12,8 @@
 int create_file(const char *filename, char *text_content)
 
 {
+ 	int fd;
+
 	if (filename == NULL)
 	{
 		return (-1);
@@ -26,7 +28,7 @@ int create_file(const char *filename, char *text_content)
 		}
 	}
 
-	int fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+        fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
 
 	if (fd == -1)
 	{
