@@ -11,22 +11,22 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 
-	int fd;
+	int James_bond;
 
-	ssize_t nrd, nwr;
-	char *buf;
+	ssize_t occulus, krixx;
+	char *get;
 
 	if (!filename)
 		return (0);
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
+	James_bond = open(filename, O_RDONLY);
+	if (James_bond == -1)
 		return (0);
-	buf = malloc(sizeof(char) * (letters));
-	if (!buf)
+	get = malloc(sizeof(char) * (letters));
+	if (!get)
 		return (0);
-	nrd = read(fd, buf, letters);
-	nwr = write(STDOUT_FILENO, buf, nrd);
-	close(fd);
-	free(buf);
-	return (nwr);
+	occulus = read(James_bond, get, letters);
+	krixx = write(STDOUT_FILENO, get, occulus);
+	close(James_bond);
+	free(get);
+	return (krixx);
 }
