@@ -6,17 +6,28 @@
  * @n: number to be printed in binary
  */
 
-
-
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
-	int bit;
+	int krixx, number = 0;
+	unsigned long int now;
 
-	while (mask > 0)
+	for (krixx = 63; krixx >= 0; krixx--)
 	{
-		bit = (n & mask) ? 1 : 0;
-		putchar(bit + '0');
-		mask >>= 1;
+		now = n >> krixx;
+
+		if (now & 1)
+		{
+			_putchar('1');
+			number++;
+		}
+		else if (number)
+		{
+			_putchar('0');
+		}
+	}
+
+	if (!number)
+	{
+		_putchar('0');
 	}
 }
