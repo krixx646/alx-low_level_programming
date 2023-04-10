@@ -16,7 +16,7 @@ void print_binary(unsigned long int n)
 	while (mask > 0)
 	{
 		bit = (n & mask) ? 1 : 0;
-		_putchar(bit + '0');
+		putchar(bit + '0');
 		mask >>= 1;
 	}
 }
