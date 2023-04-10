@@ -6,7 +6,7 @@
  * @n: number to be printed in binary
  */
 
-#include <stdio.h>
+
 
 void print_binary(unsigned long int n)
 {
